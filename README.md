@@ -12,8 +12,8 @@ This module provides two new actions:
 
 	_(Experimental)_ Generate `AndroidManifest.xml` and Java glue code. The Java glue code can't actually be
 generated, but if a Java file is present in an application project, it will be copied into the correct 
-location under the output directory as specified by the application's package path. Further, if the string
-`<PACKAGE_PATH>` is present in the Java source it will be replaced by the package path specified to Premake.
+location under the output directory as specified by the application's package name. Further, if the string
+`<PREMAKE_PACKAGE>` is present in the Java source it will be replaced by the package name specified to Premake.
 
 Some Premake configuration options are mapped to suitable NDK options. E.g. `optimize` is mapped to `APP_OPTIM`. 
 New configuration options are also available:
