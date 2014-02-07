@@ -10,11 +10,12 @@ This module provides two new actions:
 
 * `ndk-manifest`
 
-	_(Experimental)_ Generate `AndroidManifest.xml` and Java glue code. The Java glue code can't actually be
-generated, but if a Java file is present in an application project, it will be copied into the correct 
-location under the output directory as specified by the application's package name. Further, if the string
-`<PREMAKE_PACKAGE>` is present in the Java source it will be replaced by the package name specified to Premake.
-
+	_(Experimental)_ Generate `AndroidManifest.xml` and Java glue code. The glue code generation assumes you'll 
+	be extending an existing Java class, and places a trivial class in the correct output directory for the 
+	application's package name. Java source files in the project are copied into the build directory as well,
+	so that ant can see them. The manifest generated is simple, but is suitable for e.g. porting games using
+	libraries such as SDL2. For more advanced use it would be better to create your own manifest and JNI wrappers.
+	
 Some Premake configuration options are mapped to suitable NDK options. E.g. `optimize` is mapped to `APP_OPTIM`. 
 New configuration options are also available:
 
@@ -25,6 +26,12 @@ New configuration options are also available:
 * `stl`: A string specifying the STL support desired. Defaults to `system`, i.e. minimal C runtime with no STL support.
 
 * `packagename`: For `ndk-manifest` only, a string specifiying the package name to use. E.g. `com.mycompany.myapp`
+
+* `basepackagename`: For `ndk-manifest` only, a string specifying the package containing the Activity class to extend.
+
+* `activityname`: For `ndk-manifest` only, a string specifiying the name of your application's activity.
+
+* `baseactivityname`: For `ndk-manifest` only, a string specifying the name of the activity you're extending.
 
 * `packageversion`: For `ndk-manifest` only, an integer specifying the package's revision number.
 
