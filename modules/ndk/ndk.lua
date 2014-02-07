@@ -6,14 +6,14 @@
 
 -- Define module
 premake.modules.ndk = {}
-local ndk		= premake.modules.ndk
+local ndk       = premake.modules.ndk
 
 -- Shortcuts
-local api		= premake.api
-local config	= premake.config
-local make		= premake.make
-local project	= premake.project
-local solution	= premake.solution
+local api       = premake.api
+local config    = premake.config
+local make      = premake.make
+local project   = premake.project
+local solution  = premake.solution
 
 --
 -- Register Android configuration options with Premake.
