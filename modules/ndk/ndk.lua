@@ -71,6 +71,35 @@ api.register {
 	kind = "integer"
 }
 
+-- Specify android activity name
+api.register {
+	name = "activity",
+	scope = "project",
+	kind = "string"
+}
+
+-- Specify android activity base class
+api.register {
+	name = "baseactivity",
+	scope = "project",
+	kind = "string"
+}
+
+-- Specify android activity base package
+api.register {
+	name = "basepackagename",
+	scope = "project",
+	kind = "string"
+}
+
+-- Specify applicaton permissions
+api.register {
+	name = "permissions",
+	scope = "config",
+	kind = "string",
+	list = true
+}
+
 -- Retrieve module's path and allow relative includes 
 local this_file = debug.getinfo(1, "S").source:sub(2) 
 package.path = path.getdirectory(this_file) .. "/?.lua;".. package.path

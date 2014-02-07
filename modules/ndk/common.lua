@@ -8,15 +8,15 @@ local ndk       = premake.modules.ndk
 local project   = premake.project
 
 -- Constants
+ndk.ANDROID     = 'android'
 ndk.JNI         = 'jni'
 ndk.MAKEFILE    = 'Android.mk'
 ndk.APPMAKEFILE = 'Application.mk'
-ndk.ANDROID     = 'android'
 ndk.MANIFEST    = 'AndroidManifest.xml'
 ndk.GLES30      = 'GLESv3'
 ndk.GLES20      = 'GLESv2'
 ndk.GLES10      = 'GLESv1_CM'
-ndk.JAVA       = 'java'
+ndk.JAVA        = '.java'
 
 -- Need to put makefiles in subdirectories by project configuration
 function ndk.getProjectPath(this, cfg)

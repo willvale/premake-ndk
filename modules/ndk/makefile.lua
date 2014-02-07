@@ -181,7 +181,12 @@ end
 
 -- Create module name for an NDK module
 function ndk.getModuleName(prj, cfg)
-	return prj.name..'-'..cfg.buildcfg
+	if prj.kind == premake.WINDOWEDAPP then
+		-- HACK: Want to specify targetname for projects, but only on Android. Does config scoping allow this?
+		return cfg.targetname
+	else
+		return prj.name
+	end
 end
 
 -- Extract list of dependencies the given kind
